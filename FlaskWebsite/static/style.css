@@ -1,0 +1,12 @@
+.navigation {
+    list-style-type: none;
+}
+.navigation-item {
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+input[type='number']{
+    width: 60px;
+} 

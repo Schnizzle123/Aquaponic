@@ -3,8 +3,15 @@
 
 ## Todo
 ### Software
-- Repo einrichten
 - Code von Wecker extrahieren und bereinigen
+- Alles bei Marius zum Laufen bringen
+  - Raspi ordentllich installieren mit allen Modulen
+    - Python3
+    - Flask
+    - RPi
+    - Erreichbarkeit der Website
+  - VS Code remote dev (https://code.visualstudio.com/docs/remote/ssh)
+  - Repo
 - Filestruktur aufbauen
 - Sensoren Aktoren zum Laufen bringen
 - Füllstand auslesen

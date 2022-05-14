@@ -1,0 +1,33 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+    <ul>
+        <li>Snooze Time
+            <form method="post">
+                <input onchange="style='background-color:#ff9898'" type="number" name="snoozetime" value="{{ settings.get('Snooze Time') }}" />
+                <input type="submit" value="Snooze Time einstellen"/>
+            </form>
+        </li> 
+        <li>Datumsformat</li>
+        <li>Zeitzone</li>
+        <li>Smartphone verbinden</li>
+        <li>Bluetooth verbinden</li>
+    </ul>
+    <input type="submit" onclick="clicked(event)" />
+    <script>
+        function clicked(e)
+        {
+            if(!confirm('Are you sure?')) {
+                e.preventDefault();
+            }
+            else {
+                parent.location='/werkseinstellungen';
+                parent.alert("Rebooting...");
+                parent.location='/';
+            }
+            
+        }
+        </script>
+        
+    
+{% endblock %}

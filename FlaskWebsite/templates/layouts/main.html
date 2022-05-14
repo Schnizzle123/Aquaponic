@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8" /> 
+    <title>Wecker</title>
+    <link rel="stylesheet" href="/static/Skeletion/normalize.css">
+    <link rel="stylesheet" href="/static/Skeletion/skeleton.css">
+    <link rel="stylesheet" href="/static/style.css">
+ 
+</head>
+<body>
+    <div class="container">
+        <ul class="navigation">
+            <li class="navigation-item">
+                <a href="/">Start</a>
+            </li>
+            <li class="navigation-item">
+                <a href="/einstellungen">Einstellungen</a>
+            </li>
+        </ul>
+        <div style="clear: both;">&nbsp;</div>
+        <h1>{{ name }}</h1>
+        {% block content %}{% endblock %}
+    </div>
+</body>    
+</html>
