@@ -21,5 +21,12 @@
 - Motor finden
 - 
 
-## Description
-Aquaponic Anlage mit Überwachungs- und Steuerungsfunktionen über eine Website
+## Ideen
+Füllstand über Ultraschallsensor
+Wasserwerte automatisieren
+- Temperatur im Tank
+- PH Wert
+- Nitrat
+- Sauerstoffsättigung
+- Lichtsensor am Boden der Dunkelheit im Tank bestätigt
+- 
