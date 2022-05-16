@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.8" /> 
-    <title>Wecker</title>
+    <title>Aquaponic</title>
     <link rel="stylesheet" href="/static/Skeletion/normalize.css">
     <link rel="stylesheet" href="/static/Skeletion/skeleton.css">
     <link rel="stylesheet" href="/static/style.css">
  
 </head>
-<body>
+<body>        
+
     <div class="container">
         <ul class="navigation">
             <li class="navigation-item">
@@ -23,6 +24,9 @@
             </li>
         </ul>
         <div style="clear: both;">&nbsp;</div>
+        <body>
+            <img src="{{url_for('static', filename='Aquaponic_01.png')}}" style="width: 35vw"/>
+        </body>
         <h1>{{ name }}</h1>
         {% block content %}{% endblock %}
     </div>
