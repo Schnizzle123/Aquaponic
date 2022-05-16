@@ -21,13 +21,8 @@ rotary_button = 13
 ########################
 # Pfad zu Programm
 path_programm = __file__[:-11] 
-print(path_programm+"/website_settings.json") 
+#print(path_programm+"/website_settings.json") 
 
-# List of alarmsound-files
-paht_alarmsounds = __file__[:-25]
-alarmsounds_list = os.listdir(paht_alarmsounds+"/Alarmsounds")
-for x in range(len(alarmsounds_list)):
-    alarmsounds_list[x] = alarmsounds_list[x][:-4]
 
 # Wecker
 alarms = [
@@ -130,23 +125,9 @@ with open(path_programm+"/website_alarms.json", "r") as file_data:
 ########################
 @app.route("/", methods=["GET", "POST"])
 def start():
-    if request.method == 'POST':
-        for x in range(0,7):
-            alarms[x]["Aktiv"] = request.form.get("active_"+str(x))   
-            alarms[x]["Weckton"] = request.form.get("sound_"+str(x))   
-            alarms[x]["Uhrzeit"] = request.form.get("wtime_"+str(x))  
-            alarms[x]["Licht vorher"] = request.form.get("ltime_"+str(x))   
-            alarms[x]["Sonnenaufgang"] = request.form.get("sunrise_"+str(x))   
-        # write new data to file
-        with open(path_programm+"/website_alarms.json", "w") as file_data:
-            file_data.write(json.dumps(alarms))
-    return render_template("start.html", 
-                            name="Start", 
-                            alarms=alarms,
-                            alarmsounds_list=alarmsounds_list,
-                            nr_of_alarmsounds=len(alarmsounds_list),
-                            nr_of_alarms=len(alarms)
-                            ) 
+    #if request.method == 'POST':
+        
+    return render_template("start.html", name="Start") 
 
 @app.route("/einstellungen", methods=["GET", "POST"])
 def einstellungen(): 
@@ -160,8 +141,25 @@ def einstellungen():
 @app.route("/werkseinstellungen", methods=["GET", "POST"])
 def werkseinstellungen():
     reset_thread.start()
-    print("sollte eigentlich starten")
     return render_template("start.html", name="Start", alarms=alarms)
+
+@app.route("/altes_vom_wecker", methods=["GET", "POST"])
+def altes_vom_wecker():
+    if request.method == 'POST':
+        for x in range(0,7):
+            alarms[x]["Aktiv"] = request.form.get("active_"+str(x))   
+            alarms[x]["Weckton"] = request.form.get("sound_"+str(x))   
+            alarms[x]["Uhrzeit"] = request.form.get("wtime_"+str(x))  
+            alarms[x]["Licht vorher"] = request.form.get("ltime_"+str(x))   
+            alarms[x]["Sonnenaufgang"] = request.form.get("sunrise_"+str(x))   
+        # write new data to file
+        with open(path_programm+"/website_alarms.json", "w") as file_data:
+            file_data.write(json.dumps(alarms))
+    return render_template("altes_vom_wecker.html", 
+                            name="Altes vom Wecker", 
+                            alarms=alarms,
+                            nr_of_alarms=len(alarms)
+                            ) 
 
 
 ########################
